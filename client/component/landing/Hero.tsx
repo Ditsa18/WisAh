@@ -39,9 +39,9 @@ export default function Hero() {
             <a href="#contact">
               <Button size="lg" className="px-10 py-4 text-lg">Contact Us</Button>
             </a>
-            <a href="#how-we-work">
+            <a href="#services">
               <Button variant="outline" size="lg" className="flex items-center gap-3 px-10 py-4 text-lg">
-                <span>How we work</span>
+                <span>Services</span>
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-espresso/10 text-xs">
                   ▶
                 </span>
