@@ -5,7 +5,7 @@ import SectionTag from '@/component/ui/SectionTag'
 
 export default function WisdomDifference() {
   return (
-    <section className="py-24 bg-gradient-to-b from-cream via-cream to-[#fce8e8]">
+    <section className="py-24 bg-cream">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

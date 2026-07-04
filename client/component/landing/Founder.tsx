@@ -61,7 +61,7 @@ export default function Founder() {
               </p>
               
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/d-d-purkayastha-3bb71466/" 
                 target="_blank" 
                 rel="noreferrer"
                 className="inline-flex items-center gap-4 text-xs sm:text-sm font-medium uppercase tracking-wider text-espresso transition-all hover:text-deep-red group"
