@@ -9,27 +9,22 @@ export const navLinks = [
 export const footerLinks = {
   navigate: [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Team', href: '#team' },
+    { label: 'Our Story', href: '#about' },
+    { label: 'Leadership', href: '#founder' },
+    { label: 'Philosophy', href: '#philosophy' },
   ],
   resources: [
-    { label: 'Case Studies', href: '#case-studies' },
-    { label: 'How We Work', href: '#how-we-work' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'News', href: '#news' },
+    { label: 'Capabilities', href: '#capabilities' },
+    { label: 'Services', href: '#services' },
+    { label: 'Knowledge Hub', href: '#knowledge-hub' },
   ],
   connect: [
-    { label: 'Book a Call', href: '#contact' },
-    { label: 'Twitter', href: '#' },
-    { label: 'Instagram', href: '#' },
-    { label: 'Meta', href: '#' },
+    { label: 'Request Briefing', href: '#contact' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/d-d-purkayastha-3bb71466/' },
   ],
   legal: [
     { label: 'Privacy Policy', href: '#' },
     { label: 'Terms of Service', href: '#' },
-    { label: 'Cookie Policy', href: '#' },
-    { label: 'Accessibility', href: '#' },
   ],
 }
 

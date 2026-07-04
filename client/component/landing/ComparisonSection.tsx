@@ -6,7 +6,7 @@ import { X, Check } from 'lucide-react'
 
 export default function ComparisonSection() {
   return (
-    <section className="py-24 bg-cream-alt">
+    <section id="philosophy" className="py-24 bg-cream-alt">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
