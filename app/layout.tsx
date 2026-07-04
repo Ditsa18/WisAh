@@ -4,6 +4,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'WisdomAhead - Sovereign AI Advisory',
   description: 'AI advisory firm for media enterprises and C-suite audiences',
+  icons: {
+    icon: '/logo.png',
+  },
 }
 
 export default function RootLayout({

@@ -1,103 +1,100 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { useActiveTab } from '@/hooks/useActiveTab'
-import { processStepsData } from '@/lib/constants'
-import GradientImagePanel from '@/component/ui/GradientImagePanel'
+import { motion } from 'framer-motion'
 import SectionTag from '@/component/ui/SectionTag'
+import { ArrowRight } from 'lucide-react'
+
+const pillars = [
+  {
+    num: '01',
+    title: 'Strategic Business Process Optimization',
+    desc: 'We map every operational layer of your media organization — from editorial production to distribution logistics — identifying friction points where manual processes drain margin and slow decision-making. Our recommendations are grounded in four decades of C-suite media leadership, not theoretical frameworks.'
+  },
+  {
+    num: '02',
+    title: 'Intelligent Workflow Orchestration',
+    desc: 'Media enterprises run on complex, interdependent workflows. We design AI-native orchestration systems that coordinate content production, cross-platform adaptation, and resource allocation — reducing time-to-market by 40-60% while preserving editorial quality and creative control.'
+  },
+  {
+    num: '03',
+    title: 'Secure Corporate Intelligence',
+    desc: 'Your archives, subscriber data, and competitive research represent decades of proprietary value. We architect private intelligence systems that transform this data into real-time strategic insights — all while ensuring zero exposure to public AI platforms and complete regulatory compliance.'
+  },
+  {
+    num: '04',
+    title: 'Operational Cost Transformation',
+    desc: 'True cost transformation in media requires more than automation — it requires reimagining how human capital is deployed. We help shift teams from repetitive execution to strategic oversight, using AI-led systems that augment rather than replace institutional expertise.'
+  }
+]
 
 export default function ProcessSteps() {
-  const { activeIndex, setActiveIndex } = useActiveTab(0)
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  }
 
   return (
-    <section id="how-we-work" className="py-20">
+    <section id="capabilities" className="py-32">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="mb-12">
-            <SectionTag>How We Work</SectionTag>
-            <h2 className="mt-4 text-3xl md:text-4xl font-light text-espresso">
-              Getting you results without the complexity.
+          <div className="mb-20">
+            <SectionTag>Capabilities</SectionTag>
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-light text-espresso leading-tight">
+              Four Pillars <br/>
+              <span className="italic text-deep-red">of Transformation.</span>
             </h2>
+            <p className="mt-6 text-xl text-espresso/70 font-light max-w-2xl">
+              Our comprehensive approach combines strategic insight with technical excellence to deliver measurable results for media enterprises.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-            {/* Left: Step List */}
-            <div className="space-y-6">
-              {processStepsData.map((step, index) => (
-                <button
-                  key={step.step}
-                  onClick={() => setActiveIndex(index)}
-                  className={`w-full rounded-2xl p-6 text-left transition-all duration-300 ${
-                    activeIndex === index
-                      ? 'bg-tan/60 shadow-md'
-                      : 'bg-transparent hover:bg-tan/30'
-                  }`}
-                >
-                  <div className="mb-3 flex items-center gap-3">
-                    <span
-                      className={`text-sm font-medium ${
-                        activeIndex === index ? 'text-espresso' : 'text-espresso/50'
-                      }`}
-                    >
-                      {String(step.step).padStart(2, '0')}
-                    </span>
-                    <h3
-                      className={`text-lg font-medium ${
-                        activeIndex === index ? 'text-espresso' : 'text-espresso/70'
-                      }`}
-                    >
-                      {step.title}
-                    </h3>
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
+          >
+            {pillars.map((pillar, index) => (
+              <motion.div 
+                key={index}
+                variants={itemVariants}
+                className="group p-10 rounded-[32px] bg-cream border border-espresso/5 hover:border-espresso/10 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-4xl md:text-5xl font-light text-deep-red/40 mb-6 group-hover:text-deep-red transition-colors duration-500">
+                    {pillar.num}
                   </div>
-                  <div className="mb-3">
-                    <span className="inline-block rounded-full bg-espresso/10 px-3 py-1 text-xs font-medium text-espresso">
-                      {step.timeline}
-                    </span>
-                  </div>
-                  <p
-                    className={`text-sm ${
-                      activeIndex === index ? 'text-espresso/80' : 'text-espresso/60'
-                    }`}
-                  >
-                    {step.description}
+                  <h3 className="text-2xl font-medium text-espresso mb-4 leading-snug group-hover:text-deep-red transition-colors duration-300">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-lg text-espresso/70 font-light leading-relaxed mb-10">
+                    {pillar.desc}
                   </p>
-                </button>
-              ))}
-            </div>
-
-            {/* Right: Image Panel */}
-            <div className="relative h-[400px] md:h-[500px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeIndex}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0"
-                >
-                  <GradientImagePanel className="h-full w-full">
-                    <div className="flex h-full flex-col items-center justify-center p-8 text-center">
-                      <h3 className="mb-4 text-2xl font-medium text-white">
-                        {processStepsData[activeIndex].title}
-                      </h3>
-                      <span className="mb-4 inline-block rounded-full bg-white/20 px-4 py-1 text-sm font-medium text-white">
-                        {processStepsData[activeIndex].timeline}
-                      </span>
-                      <p className="text-white/90">
-                        {processStepsData[activeIndex].description}
-                      </p>
-                    </div>
-                  </GradientImagePanel>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+                </div>
+                
+                <div className="mt-auto flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-espresso group-hover:text-deep-red transition-colors pt-6 border-t border-espresso/10 cursor-pointer">
+                  DETAILS 
+                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-2" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

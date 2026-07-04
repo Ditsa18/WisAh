@@ -11,9 +11,11 @@ const config: Config = {
     extend: {
       colors: {
         cream: '#F7F3EE',
+        'cream-alt': '#F0EBE1',
         espresso: '#2D160D',
         brown: '#6B3F2D',
         tan: '#E8E1D8',
+        'deep-red': '#C92525',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],

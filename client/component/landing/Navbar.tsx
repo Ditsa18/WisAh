@@ -29,19 +29,19 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-cream/80 backdrop-blur-md' : 'bg-cream'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        scrolled ? 'bg-cream/70 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-3' : 'bg-cream py-5'
       )}
     >
-      <div className="mx-auto max-w-7xl px-6 py-4">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between">
           {/* Left: Nav Links (Desktop) */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-12">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-espresso/80 transition-colors hover:text-espresso"
+                className="text-sm font-medium tracking-wide text-espresso/70 transition-all duration-300 hover:text-deep-red hover:-translate-y-0.5"
               >
                 {link.label}
               </a>
@@ -53,9 +53,9 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="WisdomAhead"
-              width={200}
-              height={60}
-              className="h-12 w-auto"
+              width={250}
+              height={80}
+              className="h-10 md:h-16 w-auto transition-transform duration-300 hover:scale-105"
             />
           </div>
 
@@ -84,7 +84,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
-          className="md:hidden fixed inset-0 top-16 bg-cream/80 backdrop-blur-lg z-40"
+          className="md:hidden fixed inset-0 top-16 bg-cream/95 backdrop-blur-2xl z-40"
         >
           <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
             {navLinks.map((link) => (
