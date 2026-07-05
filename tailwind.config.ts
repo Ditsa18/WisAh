@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: '#F7F3EE',
-        'cream-alt': '#F0EBE1',
+        cream: '#F0EBE1',
+        'cream-alt': '#F7F3EE',
         espresso: '#2D160D',
         brown: '#6B3F2D',
         tan: '#E8E1D8',

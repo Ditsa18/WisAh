@@ -132,15 +132,25 @@ export default function KnowledgeHub({ id }: KnowledgeHubProps) {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeFilter}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: { staggerChildren: 0.1 }
+                  }
+                }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               >
                 {hubData[activeFilter].map((item, index) => (
-                  <div 
+                  <motion.div 
                     key={index}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+                    }}
                     className="group cursor-pointer flex flex-col p-8 md:p-10 rounded-[32px] bg-cream-alt border border-espresso/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl shadow-sm"
                   >
                     <div className="flex items-center justify-between gap-3 text-xs font-medium uppercase tracking-widest text-espresso/60 mb-6">
@@ -160,7 +170,7 @@ export default function KnowledgeHub({ id }: KnowledgeHubProps) {
                       {item.cta} 
                       <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-2" />
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </motion.div>
             </AnimatePresence>

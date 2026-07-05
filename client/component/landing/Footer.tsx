@@ -3,13 +3,19 @@
 import { footerLinks } from '@/lib/constants'
 import Image from 'next/image'
 import Button from '@/component/ui/Button'
+import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="bg-cream pt-32 pb-12 rounded-t-[40px] mt-20 border-t border-espresso/10">
+    <footer className="pt-32 pb-12 rounded-t-[40px] mt-20 border-t border-espresso/10">
       <div className="mx-auto max-w-7xl px-6">
-        
-        {/* Top: Newsletter & Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {/* Top: Newsletter & Logo */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24 border-b border-espresso/10 pb-16">
           <div className="max-w-md">
             <Image
@@ -116,6 +122,7 @@ export default function Footer() {
             <span className="text-sm text-espresso/50 font-light cursor-pointer hover:text-espresso transition-colors">Terms of Service</span>
           </div>
         </div>
+        </motion.div>
       </div>
     </footer>
   )

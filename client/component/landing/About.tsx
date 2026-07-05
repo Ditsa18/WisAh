@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export default function About() {
   return (
-    <section id="about" className="py-32 bg-cream-alt">
+    <section id="about" className="py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Left: Visual */}
