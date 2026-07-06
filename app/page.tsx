@@ -10,9 +10,12 @@ import ContactForm from '@/component/landing/ContactForm'
 import WisdomDifference from '@/component/landing/WisdomDifference'
 import Footer from '@/component/landing/Footer'
 
+import SplashScreen from '@/component/landing/SplashScreen'
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-cream">
+      <SplashScreen />
       <Navbar />
       <Hero />
       <About />

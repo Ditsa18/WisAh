@@ -566,6 +566,9 @@ video {
 .z-50 {
   z-index: 50;
 }
+.z-\[100\] {
+  z-index: 100;
+}
 .order-1 {
   order: 1;
 }
@@ -696,6 +699,9 @@ video {
 }
 .h-screen {
   height: 100vh;
+}
+.h-14 {
+  height: 3.5rem;
 }
 .max-h-0 {
   max-height: 0px;
@@ -1038,6 +1044,10 @@ video {
 .bg-\[size\:24px_24px\] {
   background-size: 24px 24px;
 }
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1350,6 +1360,10 @@ video {
 .outline {
   outline-style: solid;
 }
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1398,6 +1412,13 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -1575,6 +1596,10 @@ body {
 
   .sm\:aspect-\[4\/3\] {
     aspect-ratio: 4/3;
+  }
+
+  .sm\:h-20 {
+    height: 5rem;
   }
 
   .sm\:w-auto {

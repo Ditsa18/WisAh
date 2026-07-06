@@ -74,7 +74,7 @@ export default function ProcessSteps() {
               <motion.div 
                 key={index}
                 variants={itemVariants}
-                className="group p-10 rounded-[32px] bg-cream border border-espresso/5 hover:border-espresso/10 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between"
+                className="group p-10 rounded-[32px] bg-cream-alt border border-espresso/5 hover:border-espresso/10 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between"
               >
                 <div>
                   <div className="text-4xl md:text-5xl font-light text-deep-red/40 mb-6 group-hover:text-deep-red transition-colors duration-500">

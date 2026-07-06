@@ -26,7 +26,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="mb-6 md:mb-8 font-light text-5xl sm:text-6xl md:text-7xl lg:text-[80px] leading-tight md:leading-[1.1] tracking-tight text-espresso">
-            Operational Excellence <br className="hidden md:block"/> Through Sovereign AI
+            Operational Excellence <br className="hidden md:block"/> Through <span className="italic text-deep-red">Sovereign AI.</span>
           </h1>
 
           {/* Subtext */}
