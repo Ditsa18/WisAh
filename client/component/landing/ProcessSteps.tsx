@@ -44,7 +44,7 @@ export default function ProcessSteps() {
   }
 
   return (
-    <section id="capabilities" className="py-32">
+    <section id="capabilities" className="py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

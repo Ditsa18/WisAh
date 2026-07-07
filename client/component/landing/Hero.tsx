@@ -1,16 +1,59 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import Button from '@/component/ui/Button'
-import GradientImagePanel from '@/component/ui/GradientImagePanel'
 import DotGridOverlay from '@/component/ui/DotGridOverlay'
-import Link from 'next/link'
-import Image from 'next/image'
+import { X, PlayCircle } from 'lucide-react'
 
 export default function Hero() {
+  const [videoState, setVideoState] = useState<'closed' | 'explicit' | 'idle'>('closed');
+
+  useEffect(() => {
+    let idleTimer: NodeJS.Timeout;
+
+    const handleActivity = () => {
+      // If idle screensaver is playing, any activity closes it
+      if (videoState === 'idle') {
+        setVideoState('closed');
+      }
+
+      // Reset the idle timer if video is not manually open
+      clearTimeout(idleTimer);
+      if (videoState !== 'explicit') {
+        idleTimer = setTimeout(() => {
+          setVideoState('idle');
+        }, 15000);
+      }
+    };
+
+    // Set initial timer
+    if (videoState !== 'explicit') {
+      idleTimer = setTimeout(() => {
+        setVideoState('idle');
+      }, 15000);
+    }
+
+    window.addEventListener('mousemove', handleActivity);
+    window.addEventListener('mousedown', handleActivity);
+    window.addEventListener('keydown', handleActivity);
+    window.addEventListener('scroll', handleActivity);
+    window.addEventListener('touchstart', handleActivity);
+
+    return () => {
+      clearTimeout(idleTimer);
+      window.removeEventListener('mousemove', handleActivity);
+      window.removeEventListener('mousedown', handleActivity);
+      window.removeEventListener('keydown', handleActivity);
+      window.removeEventListener('scroll', handleActivity);
+      window.removeEventListener('touchstart', handleActivity);
+    };
+  }, [videoState]);
   return (
-    <section className="relative min-h-[90vh] md:min-h-[95vh] flex items-center pt-32 pb-20 md:pt-32 md:pb-32">
-      <div className="mx-auto w-full max-w-7xl px-6">
+    <section className="relative pt-40 pb-16 md:pt-48 md:pb-24 overflow-hidden flex items-center">
+      <DotGridOverlay className="opacity-[0.15]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream pointer-events-none" />
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,46 +78,78 @@ export default function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="mb-24 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
-            <a href="#contact">
-              <Button size="lg" className="px-10 py-4 text-lg">Contact Us</Button>
-            </a>
-            <a href="#services">
-              <Button variant="outline" size="lg" className="flex items-center gap-3 px-10 py-4 text-lg">
-                <span>Services</span>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-espresso/10 text-xs">
-                  ▶
-                </span>
-              </Button>
-            </a>
-          </div>
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
+              <a href="/#contact">
+                <Button size="lg" className="px-10 py-4 text-lg shadow-md hover:shadow-xl">Contact Us</Button>
+              </a>
+              <a href="/#services">
+                <Button variant="outline" size="lg" className="flex items-center gap-3 px-10 py-4 text-lg">
+                  <span>Services</span>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-espresso/10 text-xs">
+                    ▶
+                  </span>
+                </Button>
+              </a>
+            </div>
 
-          {/* Image Banner */}
-          {/* Video Container */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mx-auto w-full max-w-6xl aspect-square sm:aspect-[4/3] md:aspect-[16/9] rounded-[32px] md:rounded-[40px] overflow-hidden border border-espresso/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] transition-transform duration-700 hover:-translate-y-2 hover:shadow-[0_30px_70px_-15px_rgba(0,0,0,0.15)] group bg-tan/20"
-          >
-            {/* Fallback gradient if video is not available */}
-            <GradientImagePanel className="absolute inset-0 h-full w-full opacity-50" showDotGrid />
-            
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            {/* New Video Button */}
+            <button 
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent immediate trigger of activity listener
+                setVideoState('explicit');
+              }} 
+              className="group flex items-center gap-3 text-deep-red font-medium tracking-wide uppercase text-sm mt-4 transition-all hover:opacity-80"
             >
-              <source src="/hero.mp4" type="video/mp4" />
-            </video>
-            
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-espresso/5 mix-blend-multiply pointer-events-none" />
-          </motion.div>
+              <PlayCircle size={28} strokeWidth={1.5} className="transition-transform group-hover:scale-110" />
+              <span className="border-b border-transparent group-hover:border-deep-red/30 pb-0.5 transition-colors">
+                Discover Our Vision
+              </span>
+            </button>
+          </div>
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {videoState !== 'closed' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-espresso/95 backdrop-blur-xl"
+          >
+            {videoState === 'explicit' && (
+              <button 
+                onClick={() => setVideoState('closed')}
+                className="absolute top-8 right-8 p-2 text-cream/50 hover:text-white transition-colors z-50"
+              >
+                <X size={40} strokeWidth={1} />
+              </button>
+            )}
+            
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className={`relative w-full max-w-7xl aspect-square sm:aspect-video bg-black/50 overflow-hidden shadow-2xl mx-6 rounded-[24px] md:rounded-[40px] border border-white/10 ${
+                videoState === 'idle' ? 'pointer-events-none' : ''
+              }`}
+            >
+              <video
+                src="/hero.mp4"
+                autoPlay
+                loop
+                muted={videoState === 'idle'} // Screensaver is muted, explicit gets sound if available
+                controls={videoState === 'explicit'}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

@@ -9,17 +9,17 @@ export const navLinks = [
 export const footerLinks = {
   navigate: [
     { label: 'Home', href: '/' },
-    { label: 'Our Story', href: '#about' },
-    { label: 'Leadership', href: '#founder' },
-    { label: 'Philosophy', href: '#philosophy' },
+    { label: 'About', href: '/about' },
+    { label: 'Leadership', href: '/about#founder' },
+    { label: 'Philosophy', href: '/philosophy' },
   ],
   resources: [
-    { label: 'Capabilities', href: '#capabilities' },
-    { label: 'Services', href: '#services' },
-    { label: 'Knowledge Hub', href: '#knowledge-hub' },
+    { label: 'Capabilities', href: '/#capabilities' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Knowledge Hub', href: '/knowledge-hub' },
   ],
   connect: [
-    { label: 'Request Briefing', href: '#contact' },
+    { label: 'Request Briefing', href: '/#contact' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/d-d-purkayastha-3bb71466/' },
   ],
   legal: [

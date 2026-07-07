@@ -65,7 +65,7 @@ export default function ServicesTabs({ id }: ServicesTabsProps) {
   const { activeIndex, setActiveIndex } = useActiveTab(0)
 
   return (
-    <section id={id} className="py-32 bg-cream">
+    <section id={id} className="py-20 md:py-24 bg-cream">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -557,6 +557,12 @@ video {
 .top-0 {
   top: 0px;
 }
+.right-8 {
+  right: 2rem;
+}
+.top-8 {
+  top: 2rem;
+}
 .z-10 {
   z-index: 10;
 }
@@ -582,6 +588,10 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 .-mb-\[26px\] {
   margin-bottom: -26px;
@@ -679,6 +689,9 @@ video {
 .h-10 {
   height: 2.5rem;
 }
+.h-14 {
+  height: 3.5rem;
+}
 .h-24 {
   height: 6rem;
 }
@@ -699,9 +712,6 @@ video {
 }
 .h-screen {
   height: 100vh;
-}
-.h-14 {
-  height: 3.5rem;
 }
 .max-h-0 {
   max-height: 0px;
@@ -890,6 +900,9 @@ video {
 .rounded-none {
   border-radius: 0px;
 }
+.rounded-\[24px\] {
+  border-radius: 24px;
+}
 .rounded-r-2xl {
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -937,6 +950,9 @@ video {
 .border-transparent {
   border-color: transparent;
 }
+.border-white\/10 {
+  border-color: rgb(255 255 255 / 0.1);
+}
 .bg-cream {
   --tw-bg-opacity: 1;
   background-color: rgb(240 235 225 / var(--tw-bg-opacity, 1));
@@ -981,6 +997,12 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
+.bg-black\/50 {
+  background-color: rgb(0 0 0 / 0.5);
+}
+.bg-espresso\/95 {
+  background-color: rgb(45 22 13 / 0.95);
+}
 .bg-\[radial-gradient\(circle\2c _var\(--color-espresso\)_1px\2c _transparent_1px\)\] {
   background-image: radial-gradient(circle, var(--color-espresso) 1px, transparent 1px);
 }
@@ -1024,6 +1046,11 @@ video {
   --tw-gradient-to: rgb(13 148 136 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-transparent {
+  --tw-gradient-from: transparent var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .via-pink-500 {
   --tw-gradient-to: rgb(236 72 153 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #ec4899 var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1031,6 +1058,10 @@ video {
 .via-teal-500 {
   --tw-gradient-to: rgb(20 184 166 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #14b8a6 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-transparent {
+  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 .to-orange-500 {
   --tw-gradient-to: #f97316 var(--tw-gradient-to-position);
@@ -1040,6 +1071,9 @@ video {
 }
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+.to-cream {
+  --tw-gradient-to: #F0EBE1 var(--tw-gradient-to-position);
 }
 .bg-\[size\:24px_24px\] {
   background-size: 24px 24px;
@@ -1170,6 +1204,15 @@ video {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pt-20 {
+  padding-top: 5rem;
+}
+.pb-0\.5 {
+  padding-bottom: 0.125rem;
+}
+.pt-40 {
+  padding-top: 10rem;
 }
 .text-left {
   text-align: left;
@@ -1304,6 +1347,9 @@ video {
 .text-white\/90 {
   color: rgb(255 255 255 / 0.9);
 }
+.text-cream\/50 {
+  color: rgb(240 235 225 / 0.5);
+}
 .opacity-0 {
   opacity: 0;
 }
@@ -1315,6 +1361,9 @@ video {
 }
 .opacity-50 {
   opacity: 0.5;
+}
+.opacity-\[0\.15\] {
+  opacity: 0.15;
 }
 .mix-blend-multiply {
   mix-blend-mode: multiply;
@@ -1509,6 +1558,15 @@ body {
   color: rgb(45 22 13 / 0.6);
 }
 
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:opacity-80:hover {
+  opacity: 0.8;
+}
+
 .hover\:shadow-\[0_30px_70px_-15px_rgba\(0\2c 0\2c 0\2c 0\.15\)\]:hover {
   --tw-shadow: 0 30px 70px -15px rgba(0,0,0,0.15);
   --tw-shadow-colored: 0 30px 70px -15px var(--tw-shadow-color);
@@ -1574,6 +1632,10 @@ body {
   border-color: rgb(201 37 37 / var(--tw-border-opacity, 1));
 }
 
+.group:hover .group-hover\:border-deep-red\/30 {
+  border-color: rgb(201 37 37 / 0.3);
+}
+
 .group:hover .group-hover\:bg-espresso\/10 {
   background-color: rgb(45 22 13 / 0.1);
 }
@@ -1596,6 +1658,10 @@ body {
 
   .sm\:aspect-\[4\/3\] {
     aspect-ratio: 4/3;
+  }
+
+  .sm\:aspect-video {
+    aspect-ratio: 16 / 9;
   }
 
   .sm\:h-20 {
@@ -1762,12 +1828,25 @@ body {
     padding-right: 0px;
   }
 
+  .md\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
   .md\:pb-32 {
     padding-bottom: 8rem;
   }
 
   .md\:pt-32 {
     padding-top: 8rem;
+  }
+
+  .md\:pb-24 {
+    padding-bottom: 6rem;
+  }
+
+  .md\:pt-48 {
+    padding-top: 12rem;
   }
 
   .md\:text-2xl {

@@ -21,9 +21,9 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Capabilities', href: '#capabilities' },
+    { label: 'About', href: '/about' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Capabilities', href: '/#capabilities' },
   ]
 
   return (
@@ -62,7 +62,7 @@ export default function Navbar() {
 
             {/* Right: CTA Button / Mobile Menu Toggle */}
             <div className="flex items-center gap-4">
-              <a href="#contact">
+              <a href="/#contact">
                 <Button size="sm" className="hidden md:inline-flex">
                   Contact Us
                 </Button>
@@ -99,7 +99,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="mt-4">
+            <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="mt-4">
               <Button size="lg" className="px-10 py-4 text-lg">Contact Us</Button>
             </a>
           </div>
