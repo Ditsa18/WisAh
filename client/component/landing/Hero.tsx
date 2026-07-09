@@ -134,7 +134,7 @@ export default function Hero() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative w-full max-w-7xl aspect-square sm:aspect-video bg-black/50 overflow-hidden shadow-2xl mx-6 rounded-[24px] md:rounded-[40px] border border-white/10 ${
+              className={`relative w-full max-w-7xl aspect-video bg-black/80 overflow-hidden shadow-2xl mx-6 rounded-[24px] md:rounded-[40px] border border-white/10 ${
                 videoState === 'idle' ? 'pointer-events-none' : ''
               }`}
             >
@@ -144,7 +144,7 @@ export default function Hero() {
                 loop
                 muted={videoState === 'idle'} // Screensaver is muted, explicit gets sound if available
                 controls={videoState === 'explicit'}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </motion.div>
           </motion.div>
