@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Button from '@/component/ui/Button'
 import DotGridOverlay from '@/component/ui/DotGridOverlay'
-import { X, PlayCircle } from 'lucide-react'
+import { X, PlayCircle, Check } from 'lucide-react'
 
 export default function Hero() {
   const [videoState, setVideoState] = useState<'closed' | 'explicit' | 'idle'>('closed');
@@ -68,14 +68,72 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="mb-6 md:mb-8 font-light text-5xl sm:text-6xl md:text-7xl lg:text-[80px] leading-tight md:leading-[1.1] tracking-tight text-espresso">
+          <h1 className="mb-4 md:mb-6 font-light text-5xl sm:text-6xl md:text-7xl lg:text-[80px] leading-tight md:leading-[1.1] tracking-tight text-espresso">
             Operational Excellence <br className="hidden md:block"/> Through <span className="italic text-deep-red">Sovereign AI.</span>
           </h1>
 
+          {/* Secondary Headline */}
+          <h2 className="mb-10 md:mb-12 font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-espresso/90">
+            Board-Level AI Strategy.
+          </h2>
+
           {/* Subtext */}
-          <p className="mb-10 md:mb-14 max-w-4xl mx-auto text-lg sm:text-xl md:text-2xl text-espresso/70 leading-relaxed font-light px-4">
+          <p className="mb-12 md:mb-16 max-w-4xl mx-auto text-lg sm:text-xl md:text-2xl text-espresso/70 leading-relaxed font-light px-4">
             We architect secure, private AI systems that transform internal operations — making media organizations faster, leaner, and more intelligent.
           </p>
+
+          {/* Why Us - Key Differentiators */}
+          <div className="mb-20 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-left px-4">
+            
+            {/* Card 1 */}
+            <div className="relative bg-white/70 backdrop-blur-md border border-espresso/5 rounded-[24px] p-6 md:p-8 shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-2 overflow-hidden group">
+              <div className="absolute -right-4 -bottom-4 opacity-[0.02] transition-transform duration-700 group-hover:scale-110 group-hover:opacity-[0.04]">
+                <Check size={160} className="text-espresso" />
+              </div>
+              <h4 className="text-xl md:text-2xl font-medium mb-4 flex items-center gap-4 text-espresso relative z-10">
+                <div className="p-2.5 bg-deep-red/10 rounded-xl shadow-sm">
+                  <Check size={24} className="text-deep-red" strokeWidth={2.5} />
+                </div>
+                Deep Media Expertise
+              </h4>
+              <p className="text-base md:text-lg text-espresso/70 leading-relaxed font-light relative z-10">
+                Led by <strong className="text-deep-red font-medium">C-suite executives</strong> who understand the nuances of publishing workflows and media operations.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="relative bg-white/70 backdrop-blur-md border border-espresso/5 rounded-[24px] p-6 md:p-8 shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-2 overflow-hidden group">
+              <div className="absolute -right-4 -bottom-4 opacity-[0.02] transition-transform duration-700 group-hover:scale-110 group-hover:opacity-[0.04]">
+                <Check size={160} className="text-espresso" />
+              </div>
+              <h4 className="text-xl md:text-2xl font-medium mb-4 flex items-center gap-4 text-espresso relative z-10">
+                <div className="p-2.5 bg-deep-red/10 rounded-xl shadow-sm">
+                  <Check size={24} className="text-deep-red" strokeWidth={2.5} />
+                </div>
+                Private Intelligence
+              </h4>
+              <p className="text-base md:text-lg text-espresso/70 leading-relaxed font-light relative z-10">
+                <strong className="text-deep-red font-medium">Zero exposure</strong> to public LLMs. Your archives and proprietary data remain completely secure and sovereign.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="relative bg-white/70 backdrop-blur-md border border-espresso/5 rounded-[24px] p-6 md:p-8 shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-2 overflow-hidden group">
+              <div className="absolute -right-4 -bottom-4 opacity-[0.02] transition-transform duration-700 group-hover:scale-110 group-hover:opacity-[0.04]">
+                <Check size={160} className="text-espresso" />
+              </div>
+              <h4 className="text-xl md:text-2xl font-medium mb-4 flex items-center gap-4 text-espresso relative z-10">
+                <div className="p-2.5 bg-deep-red/10 rounded-xl shadow-sm">
+                  <Check size={24} className="text-deep-red" strokeWidth={2.5} />
+                </div>
+                Rapid Execution
+              </h4>
+              <p className="text-base md:text-lg text-espresso/70 leading-relaxed font-light relative z-10">
+                Move from theoretical AI strategy to measurable operational cost reduction within a <strong className="text-deep-red font-medium">90-day window</strong>.
+              </p>
+            </div>
+
+          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col items-center gap-8">
