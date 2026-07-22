@@ -53,10 +53,11 @@ export default function Navbar() {
             <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
               <Image
                 src="/logo.png"
-                alt="WisdomAhead"
-                width={250}
-                height={80}
-                className="h-10 md:h-16 w-auto transition-transform duration-300 hover:scale-105"
+                alt="WisdomAhead Enterprise AI Logo"
+                width={120}
+                height={40}
+                className="w-auto h-8 sm:h-10 transition-transform duration-300 group-hover:scale-105"
+                priority
               />
             </div>
 

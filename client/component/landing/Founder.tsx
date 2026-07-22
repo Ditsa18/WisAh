@@ -84,7 +84,7 @@ export default function Founder() {
           >
             <Image
               src="/founder-portrait.jpg"
-              alt="Ditsa18 - Founder"
+              alt="D. D. Purkayastha - Founder and Principal Advisor at WisdomAhead"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

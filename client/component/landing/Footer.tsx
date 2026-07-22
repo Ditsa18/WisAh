@@ -20,10 +20,10 @@ export default function Footer() {
           <div className="max-w-md">
             <Image
               src="/logo.png"
-              alt="WisdomAhead"
-              width={200}
-              height={60}
-              className="h-10 w-auto mb-8"
+              alt="WisdomAhead Enterprise AI Logo"
+              width={140}
+              height={48}
+              className="w-auto h-10 mb-6"
             />
             <p className="text-espresso/70 font-light leading-relaxed mb-8">
               Strategic intelligence and sovereign AI advisory for the world's leading media enterprises.

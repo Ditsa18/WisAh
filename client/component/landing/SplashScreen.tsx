@@ -42,10 +42,9 @@ export default function SplashScreen() {
           >
             <Image
               src="/logo.png"
-              alt="WisdomAhead"
-              width={400}
-              height={120}
-              className="h-14 sm:h-20 w-auto object-contain"
+              alt="WisdomAhead Enterprise AI Logo"
+              fill
+              className="object-contain filter drop-shadow-2xl"
               priority
             />
           </motion.div>
