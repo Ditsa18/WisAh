@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://wisdomahead.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.wisdomahead.com";
 
   const routes = ['', '/about', '/knowledge-hub', '/philosophy', '/call'].map((route) => ({
     url: `${baseUrl}${route}`,
